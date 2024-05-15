@@ -6,9 +6,12 @@ import {
   HomeIcon,
   XMarkIcon,
   MagnifyingGlassIcon,
+  ArrowRightStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import { getCurrentPath } from "../utility/pathUtility";
 import DashboardContent from "../components/DashboardContent";
+import { removeToken } from "../utility/tokenUtility";
+import { classNames } from "../utility/commonUtiliy";
 
 const navigation = [
   {
@@ -30,9 +33,6 @@ const navigation = [
     current: getCurrentPath() === "/orders",
   },
 ];
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -40,9 +40,9 @@ export default function Dashboard() {
   return (
     <>
       <div>
-        <Transition.Root show={sidebarOpen} as={Fragment}>
+        <Transition show={sidebarOpen} as={Fragment}>
           <Dialog className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
-            <Transition.Child
+            <Transition
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
               enterFrom="opacity-0"
@@ -52,10 +52,10 @@ export default function Dashboard() {
               leaveTo="opacity-0"
             >
               <div className="fixed inset-0 bg-gray-900/80" />
-            </Transition.Child>
+            </Transition>
 
             <div className="fixed inset-0 flex">
-              <Transition.Child
+              <Transition
                 as={Fragment}
                 enter="transition ease-in-out duration-300 transform"
                 enterFrom="-translate-x-full"
@@ -64,8 +64,8 @@ export default function Dashboard() {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
-                  <Transition.Child
+                <div className="relative mr-16 flex w-full max-w-xs flex-1">
+                  <Transition
                     as={Fragment}
                     enter="ease-in-out duration-300"
                     enterFrom="opacity-0"
@@ -87,7 +87,7 @@ export default function Dashboard() {
                         />
                       </button>
                     </div>
-                  </Transition.Child>
+                  </Transition>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
                     <div className="flex h-16 shrink-0 items-center">
@@ -131,11 +131,11 @@ export default function Dashboard() {
                       </ul>
                     </nav>
                   </div>
-                </Dialog.Panel>
-              </Transition.Child>
+                </div>
+              </Transition>
             </div>
           </Dialog>
-        </Transition.Root>
+        </Transition>
 
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -180,18 +180,15 @@ export default function Dashboard() {
                   </ul>
                 </li>
                 <li className="-mx-6 mt-auto">
-                  <a
-                    href="#"
-                    className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
+                  <div
+                    onClick={removeToken}
+                    className="flex items-center gap-x-4 px-6 py-3 mb-4 text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 cursor-default"
                   >
-                    <img
-                      className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span className="sr-only">Your profile</span>
-                    <span aria-hidden="true">Tom Cook</span>
-                  </a>
+                    <div className="h-6 w-6 shrink-0">
+                      <ArrowRightStartOnRectangleIcon />
+                    </div>
+                    <span aria-hidden="true">Log out</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -210,14 +207,11 @@ export default function Dashboard() {
           <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
             Dashboard
           </div>
-          <a href="#">
-            <span className="sr-only">Your profile</span>
-            <img
-              className="h-8 w-8 rounded-full bg-gray-50"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt=""
-            />
-          </a>
+          <div onClick={removeToken}>
+            <div className="h-6 w-6 rounded-full bg-gray-50">
+              <ArrowRightStartOnRectangleIcon />
+            </div>
+          </div>
         </div>
         <DashboardContent />
       </div>

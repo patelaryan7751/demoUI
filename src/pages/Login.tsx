@@ -19,7 +19,8 @@ export default function Login() {
   };
 
   // conatins the logic to handle the login logout process of the demo dashboard
-  const checkCredentials = () => {
+  const checkCredentials = (e: any) => {
+    e.preventDefault();
     if (userName.trim() === "admin" && password.trim() === "admin") {
       localStorage.setItem("sessionToken", "base64String");
       setErrorInForm("");
@@ -46,7 +47,10 @@ export default function Login() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <form className="space-y-6" onSubmit={checkCredentials}>
+            <form
+              className="space-y-6"
+              onSubmit={(e: any) => checkCredentials(e)}
+            >
               <div>
                 <label
                   htmlFor="text"

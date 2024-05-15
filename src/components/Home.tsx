@@ -1,17 +1,21 @@
+import {
+  CursorArrowRaysIcon,
+  EnvelopeOpenIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import DashboardStats from "./HomeContent/DashboardStats";
+import UtilDataProdStats from "./HomeContent/UtilDataProdStats";
+import UtilDataDomains from "./HomeContent/UtilDataDomains";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const removeToken = () => {
-    localStorage.removeItem("sessionToken");
-    navigate("/login");
-  };
-
   return (
     <>
-      <h1>Home Page</h1>
-      <button onClick={removeToken}>Log out</button>
+      <div className="space-y-6">
+        <DashboardStats />
+        <UtilDataProdStats />
+        <UtilDataDomains />
+      </div>
     </>
   );
 };
