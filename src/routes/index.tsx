@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import WelcomePage from "../pages/WelcomePage";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,13 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   // Protected Routes
-  //   {
-  //     path: "account",
-  //     element: <AccountLayout />
-  //   },
+  {
+    path: "/home",
+    element: (
+      <ProtectedRoute>
+        <Home />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 export default router;
