@@ -1,8 +1,3 @@
-import {
-  CursorArrowRaysIcon,
-  EnvelopeOpenIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
 import React from "react";
 import DashboardStats from "./HomeContent/DashboardStats";
 import UtilDataProdStats from "./HomeContent/UtilDataProdStats";
