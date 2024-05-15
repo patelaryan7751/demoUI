@@ -7,7 +7,6 @@ export default function ProtectedRoute({
   children: JSX.Element;
 }) {
   const { pathname } = useLocation();
-
   const isAuth = !!localStorage.getItem("sessionToken");
   if (isAuth) {
     console.log(isAuth);
