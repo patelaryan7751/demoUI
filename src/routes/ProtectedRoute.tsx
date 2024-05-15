@@ -10,6 +10,7 @@ export default function ProtectedRoute({
 
   const isAuth = !!localStorage.getItem("sessionToken");
   if (isAuth) {
+    console.log(isAuth);
     return <>{children}</>;
   }
   return <Navigate to="/login" replace state={{ referrer: pathname }} />;

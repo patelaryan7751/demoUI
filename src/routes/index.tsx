@@ -14,10 +14,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/home",
-    element: <Home />,
-  },
   // Protected Routes
   {
     path: "/home",
