@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () => {
+const Orders = () => {
   return (
     <>
       <div className="space-y-6">
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Orders;

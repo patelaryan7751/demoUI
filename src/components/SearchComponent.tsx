@@ -1,15 +1,23 @@
 import React from "react";
+import SearchTable from "./SearchContent/SearchTable";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
-const Home = () => {
+const SearchComponent = () => {
   return (
     <>
-      <div className="space-y-6">
-        <h3 className="text-base font-semibold leading-6 text-gray-900">
-          Search
-        </h3>
+      <div className="flex justify-between">
+        <div>
+          <h3 className="text-base font-semibold leading-6 text-gray-900">
+            Search
+          </h3>
+        </div>
+        <div className="inline-flex">
+          <ShoppingCartIcon className="h-6 w-6 mr-2" /> Cart
+        </div>
       </div>
+      <SearchTable />
     </>
   );
 };
 
-export default Home;
+export default SearchComponent;
