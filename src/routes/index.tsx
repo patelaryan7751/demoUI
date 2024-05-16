@@ -40,5 +40,13 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  {
+    path: "/summary/policyholder-data",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 export default router;
