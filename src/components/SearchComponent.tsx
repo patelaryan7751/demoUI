@@ -5,7 +5,7 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 const SearchComponent = () => {
   return (
     <>
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8 m-4">
         <div className="flex justify-between">
           <div>
             <h3 className="text-base font-semibold leading-6 text-gray-900">

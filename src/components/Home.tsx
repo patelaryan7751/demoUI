@@ -6,7 +6,7 @@ import UtilDataDomains from "./HomeContent/UtilDataDomains";
 const Home = () => {
   return (
     <>
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8 m-4">
         <div className="space-y-6">
           <DashboardStats />
           <UtilDataProdStats />

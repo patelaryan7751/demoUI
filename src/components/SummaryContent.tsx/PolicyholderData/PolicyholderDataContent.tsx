@@ -1,5 +1,6 @@
 import React from "react";
 import ApplicationDetails from "./ApplicationDetails";
+import PolicySearchTable from "./PolicySearchTable";
 
 const PolicyholderDataContent = () => {
   return (
@@ -24,6 +25,7 @@ const PolicyholderDataContent = () => {
           </div>
         </div>
         <ApplicationDetails />
+        <PolicySearchTable />
       </div>
     </>
   );
