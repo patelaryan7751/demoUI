@@ -8,7 +8,7 @@ const DashboardContent = () => {
   return (
     <>
       <main className="py-2 lg:pl-72">
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div className="">
           {getCurrentPath() === "/home" ? <Home /> : <></>}
           {getCurrentPath() === "/search" ? <SearchComponent /> : <></>}
           {getCurrentPath() === "/orders" ? <Orders /> : <></>}
